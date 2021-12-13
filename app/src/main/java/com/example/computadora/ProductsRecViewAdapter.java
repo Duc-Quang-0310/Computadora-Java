@@ -1,11 +1,13 @@
 package com.example.computadora;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,9 +58,16 @@ public class ProductsRecViewAdapter extends RecyclerView.Adapter<ProductsRecView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.textPrice.setText(dps.get(position).getPrice());
         Glide.with(context).asBitmap().load(dps.get(position).getImgs().get(0)).into(holder.product_img);
+
+        holder.product_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, dps.get(position).get_id() + " clicked " , Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

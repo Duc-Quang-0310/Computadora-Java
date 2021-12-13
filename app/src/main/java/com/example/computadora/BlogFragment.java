@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 public class BlogFragment extends Fragment {
 
-    private CarouselView carouselView;
+    private CarouselView carouV;
     private RecyclerView blog_recyclerView;
     private RequestQueue requestQueue;
 
@@ -58,12 +58,12 @@ public class BlogFragment extends Fragment {
     }
 
     private void initValue(FragmentActivity view) {
-        carouselView = view.findViewById(R.id.carousel_blog_frag);
-        carouselView.setPageCount(images.length);
+        carouV = view.findViewById(R.id.carousel_blog_frag);
+//        carouV.setPageCount(images.length);
         blog_recyclerView = view.findViewById(R.id.blog_recyclerView);
         requestQueue = Volley.newRequestQueue(view);
 
-        carouselView.setImageListener(new ImageListener() {
+        carouV.setImageListener(new ImageListener() {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(images[position]);

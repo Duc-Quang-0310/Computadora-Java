@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -41,6 +42,7 @@ public class HomeFragment extends Fragment {
     };
     private RequestQueue mQueue;
     private Button see_more_btn;
+    private RelativeLayout search_zone_input;
 
 
     public HomeFragment() {
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
     private void initValue(FragmentActivity view) {
         carouselView = view.findViewById(R.id.carousel_blog);
         carouselView.setPageCount(myImg.length);
+        search_zone_input = view.findViewById(R.id.search_zone_input);
 
         mQueue = Volley.newRequestQueue(view);
         home_product_RecyclerView = view.findViewById(R.id.home_product_RecyclerView);
@@ -66,6 +69,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(myImg[position]);
+            }
+        });
+
+        search_zone_input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view, Search.class);
+                startActivity(intent);
             }
         });
 

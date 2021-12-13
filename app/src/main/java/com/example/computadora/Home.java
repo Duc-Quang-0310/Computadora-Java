@@ -20,9 +20,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        initNavBar();
-    }
-    private void initNavBar() {
+
         bottomNav = findViewById(R.id.bottomNavigationView);
         navController = Navigation.findNavController(this, R.id.fragment);
         appBarConfiguration = new AppBarConfiguration.Builder(
@@ -30,4 +28,5 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNav, navController);
     }
+
 }

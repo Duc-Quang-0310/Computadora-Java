@@ -22,7 +22,7 @@
     <string name="txt_back_to_home">Về trang chủ</string>
     <string name="txt_bought_history">Lịch sử mua hàng</string>
     <string name="txt_add_to_cart">Thêm vào giỏ hàng</string>
-    <string name="txt_add_to_cart_success">Thêm vào giỏ hàng thành công</string>
+    <string name="txt_add_to_cart_success">Thêm vào giỏ hàng \n thành công</string>
     <string name="txt_pay">Thanh toán</string>
     <string name="txt_into_money">Thành tiền</string>
     <string name="txt_receipt">Hoá đơn</string>
@@ -30,6 +30,11 @@
     <string name="txt_confirm_receive_info">Xác nhận đơn hàng</string>
     <string name="txt_payment_success">Thanh toán thành công</string>
     <string name="txt_thank_for_your_support">Đơn hàng của bạn đã được xác nhận. Cảm ơn đã tin dùng Computadora!!!</string>
+    <string name="txt_mainfunc_buyLaptop">Mua sắm laptop</string>
+    <string name="txt_mainfunc_review">Đánh giá sản\n phẩm</string>
+    <string name="txt_mainfunc_yourShare">Chia sẻ của bạn</string>
+    <string name="txt_our_Blog">Tất cả blog</string>
+
 
     <!--    Nav-item-->
     <string name="txt_bottom_nav_item_HOME">Trang chủ</string>
@@ -48,6 +53,10 @@
     <string name="txt_new_password">Mật khẩu mới</string>
     <string name="txt_new_password_repeat">Xác nhận mật khẩu mới</string>
     <string name="txt_save_changes">Xác nhận thay đổi</string>
+    <string name="txt_city">Thành phố</string>
+    <string name="txt_district">Quận</string>
+    <string name="txt_subdistrict">Huyện</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

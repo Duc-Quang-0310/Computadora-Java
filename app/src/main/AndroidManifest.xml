@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Computadora">
         <activity
+            android:name=".AddToCard_Success"
+            android:exported="false" />
+        <activity
+            android:name=".Account_ChangePW"
+            android:exported="false" />
+        <activity
+            android:name=".Account_ChangeInfo"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity

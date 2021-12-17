@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Computadora">
         <activity
+            android:name=".Payment_Success"
+            android:exported="false" />
+        <activity
             android:name=".Search"
             android:exported="false" />
         <activity

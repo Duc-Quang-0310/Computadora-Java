@@ -16,4 +16,7 @@
     <color name="light_grey">#F2F2F2</color>
     <color name="app_background">#F7F5F9</color>
 
+    <color name="payment_success_text">#513529</color>
+    <color name="payment_success_confirm">#817F7F</color>
+
 </resources>

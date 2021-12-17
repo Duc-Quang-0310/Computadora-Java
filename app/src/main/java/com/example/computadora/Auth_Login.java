@@ -31,6 +31,7 @@ import java.util.Map;
 
 public class Auth_Login extends AppCompatActivity {
 
+    private static final String LOGIN_API_URL = "https://backend-mobile-quang.herokuapp.com/api/user/login";
     private static final String TOKEN = "token";
     private static final String PHONE_NUMBER = "phonenumber";
     private static final String IMAGE_URL = "imageUrl";
@@ -56,30 +57,25 @@ public class Auth_Login extends AppCompatActivity {
         checkLogin();
 
         initValue();
+
         redirectText();
+
         handleSubmit();
-
-        handleErrDisplay();
-
-//        SupportClass.setTimeout(() -> redirecter(), 2000);
     }
 
     private void checkLogin() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        String token = sharedPreferences.getString(TOKEN,null);
-        if ( token != null ) {
+        String token = sharedPreferences.getString(TOKEN,"");
+        if ( !token.equals("")) {
             SupportClass.setTimeout(() -> redirecter(), 0);
         }
+
+        System.out.println("this is token" + token);
     }
 
     private void redirecter() {
         Intent intent = new Intent(Auth_Login.this, Home.class);
         startActivity(intent);
-    }
-
-    private void handleErrDisplay() {
-//        username_input_layout.setError("This is an error");
     }
 
     private void handleSubmit() {
@@ -106,7 +102,7 @@ public class Auth_Login extends AppCompatActivity {
 
     private void startLogin(JSONObject parameters) {
         System.out.println("logging in");
-        String url = "https://backend-mobile-quang.herokuapp.com/api/user/login";
+        String url = LOGIN_API_URL;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -144,8 +140,6 @@ public class Auth_Login extends AppCompatActivity {
                         editor.putString(SHIP_DISTRICT,shipDistrict );
                         editor.putString(SHIP_SUBDISTRICT , shipSubDistrict);
                         editor.commit();
-
-                        String tmp = sharedPreferences.getString(TOKEN,null);
 
                         Toast.makeText(Auth_Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         SupportClass.setTimeout(() -> redirecter(), 500);

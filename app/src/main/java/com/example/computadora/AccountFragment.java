@@ -37,7 +37,6 @@ public class AccountFragment extends Fragment {
     public static AccountFragment newInstance(String param1, String param2) {
         AccountFragment fragment = new AccountFragment();
         Bundle args = new Bundle();
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,7 +72,6 @@ public class AccountFragment extends Fragment {
             }
         });
     }
-
 
     private void redirecter(Class classDirector) {
         Intent intent = new Intent(getContext(), classDirector);

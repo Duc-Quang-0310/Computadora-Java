@@ -26,6 +26,7 @@ public class CartRecViewAdapter extends RecyclerView.Adapter<CartRecViewAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // thằng này của t là nó gắn cái cart_list-item xml file vào recycler view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_list_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;

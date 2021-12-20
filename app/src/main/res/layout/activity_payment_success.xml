@@ -47,10 +47,10 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonToProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_back_to_home"
+        android:text="@string/txt_back_to_product"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

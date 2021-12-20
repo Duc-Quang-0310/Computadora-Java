@@ -2,6 +2,7 @@ package com.example.computadora;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +66,9 @@ public class ProductsRecViewAdapter extends RecyclerView.Adapter<ProductsRecView
         holder.product_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, dps.get(position).get_id() + " clicked " , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ProductDetails.class );
+                intent.putExtra("_id", dps.get(position).get_id());
+                context.startActivity(intent);
             }
         });
     }

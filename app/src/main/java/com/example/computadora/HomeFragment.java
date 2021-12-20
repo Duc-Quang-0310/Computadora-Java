@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
 
     private void initValue(FragmentActivity view) {
         carouselView = view.findViewById(R.id.carousel_blog);
-        carouselView.setPageCount(myImg.length);
+
         search_zone_input = view.findViewById(R.id.search_zone_input);
 
         mQueue = Volley.newRequestQueue(view);
@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                 imageView.setImageResource(myImg[position]);
             }
         });
-
+        carouselView.setPageCount(myImg.length);
         search_zone_input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

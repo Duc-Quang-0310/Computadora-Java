@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class AddToCard_Success extends AppCompatActivity {
+    private static final int HOME_FRAGMENT = 1000523;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,9 @@ public class AddToCard_Success extends AppCompatActivity {
         rdrToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddToCard_Success.this, HomeFragment.class);
+                Intent intent = new Intent(AddToCard_Success.this, Home.class);
+                intent.putExtra("view", HOME_FRAGMENT);
+                startActivity(intent);
             }
         });
     }

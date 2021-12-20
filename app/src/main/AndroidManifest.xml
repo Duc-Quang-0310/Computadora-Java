@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Computadora">
         <activity
+            android:name=".ProductDetails"
+            android:exported="false" />
+        <activity
+            android:name=".BlogDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Receipt"
+            android:exported="false" />
+        <activity
             android:name=".Payment_Success"
             android:exported="false" />
         <activity

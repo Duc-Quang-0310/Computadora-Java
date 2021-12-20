@@ -19,4 +19,7 @@
     <color name="payment_success_text">#513529</color>
     <color name="payment_success_confirm">#817F7F</color>
 
+    <color name="black_text">#1A051D</color>
+
+
 </resources>

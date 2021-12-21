@@ -92,7 +92,11 @@ public class Receipt extends AppCompatActivity {
         txtName.setText(name);
         txtAddress.setText(subDistrict + ", " + district + ", " + city);
         txtPhone.setText(phoneNumber);
+        txtMoney.setText(convertToNumber(items).toString());
 
+    }
+
+    private Integer convertToNumber (ArrayList<CartItem> items) {
         ArrayList<String> prices = new ArrayList<>();
         for( int i = 0; i < items.size(); i ++) {
             String[] parts = items.get(i).getPrice().split("\\s");
@@ -118,8 +122,6 @@ public class Receipt extends AppCompatActivity {
             int number = Integer.parseInt(finalPrices.get(k));
             price += number;
         }
-
-        System.out.println("price" + price);
-
+        return price;
     }
 }

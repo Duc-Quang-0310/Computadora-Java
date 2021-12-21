@@ -2,6 +2,7 @@ package com.example.computadora;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -43,7 +45,9 @@ public class HomeFragment extends Fragment {
     private RequestQueue mQueue;
     private Button see_more_btn;
     private RelativeLayout search_zone_input;
-
+    private static final String URL= "https://backend-mobile-quang.herokuapp.com/products";
+    private static final String SHARED_PREF = "sharedPrefs";
+    private static final String CART_ITEMS = "cart_items";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -101,9 +105,19 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        storeFakeData();
     }
 
+    private void storeFakeData() {
+        ArrayList<CartItem> fakeData = new ArrayList<>();
+        fakeData.add(new CartItem("Test 123", "27.000.000 đ", 1, "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"));
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        Gson gson = new Gson();
+//        editor.putString(CART_ITEMS, gson.toJson(fakeData));
+//        editor.commit();
+        System.out.println("Clear data complete");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,8 +127,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchData(ArrayList<RequestReturn_Products> dataProducts, Context context) {
-        String url = "https://backend-mobile-quang.herokuapp.com/products";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -180,6 +193,4 @@ public class HomeFragment extends Fragment {
         });
         mQueue.add(request);
     }
-
-
 }

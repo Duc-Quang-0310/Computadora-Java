@@ -39,6 +39,7 @@ public class Auth_Login extends AppCompatActivity {
     private static final String SHARED_PREF = "sharedPrefs";
     private static final String PASSWORD = "password";
     private static final String NAME = "name";
+    private static final String USERNAME = "username";
     private static final String SHIP_CITY = "shipCity";
     private static final String SHIP_DISTRICT = "shipDistrict";
     private static final String SHIP_SUBDISTRICT = "shipSubDistrict";
@@ -97,7 +98,6 @@ public class Auth_Login extends AppCompatActivity {
         body.put("password", password);
         JSONObject parameters = new JSONObject(body);
         startLogin(parameters);
-
     }
 
     private void startLogin(JSONObject parameters) {
@@ -138,6 +138,7 @@ public class Auth_Login extends AppCompatActivity {
                         editor.putString(EMAIL,email );
                         editor.putString(SHIP_CITY , shipCity);
                         editor.putString(SHIP_DISTRICT,shipDistrict );
+                        editor.putString(USERNAME,username);
                         editor.putString(SHIP_SUBDISTRICT , shipSubDistrict);
                         editor.commit();
 

@@ -46,6 +46,7 @@
 
     <!--    Profile-->
     <string name="txt_gender"> Giới tính</string>
+    <string name="txt_name"> Tên</string>
     <string name="txt_Telephone">Số điện thoại</string>
     <string name="txt_change_info">Sửa thông tin</string>
     <string name="txt_change_password">Đổi mật khẩu</string>
@@ -61,4 +62,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_back_to_product">Xem sản phẩm khác</string>
+    <string name="txt_random">Đơn hàng của bạn tại Computadora đang được xử lý vui lòng đợi</string>
+    <string name="txt_random_date">20/12/2021</string>
+    <string name="txt_random_hour">14:16</string>
+
 </resources>

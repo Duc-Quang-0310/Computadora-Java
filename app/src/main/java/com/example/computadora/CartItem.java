@@ -3,10 +3,10 @@ package com.example.computadora;
 public class CartItem {
     private String name;
     private String price;
-    private String quantity;
+    private Integer quantity;
     private String imageUrl;
 
-    public CartItem(String name, String price, String quantity, String imageUrl) {
+    public CartItem(String name, String price, Integer quantity, String imageUrl) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -29,11 +29,11 @@ public class CartItem {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

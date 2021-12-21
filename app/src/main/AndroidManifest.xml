@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Computadora">
         <activity
+            android:name=".Bought_History"
+            android:exported="false" />
+        <activity
             android:name=".ProductDetails"
             android:exported="false" />
         <activity

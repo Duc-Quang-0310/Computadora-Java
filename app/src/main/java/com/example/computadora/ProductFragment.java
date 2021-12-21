@@ -1,6 +1,7 @@
 package com.example.computadora;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,11 +30,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProductFragment extends Fragment {
 
     private RecyclerView productView;
@@ -40,7 +37,9 @@ public class ProductFragment extends Fragment {
     private int[] myImg = new int[]{
             R.drawable.logo_color, R.drawable.add_to_cart, R.drawable.welcome, R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground
     };
+    private RelativeLayout search_rdr_p;
     private RequestQueue requestQueue;
+    private static final String URL = "https://backend-mobile-quang.herokuapp.com/products";
 
     public ProductFragment() {
         // Required empty public constructor
@@ -78,6 +77,15 @@ public class ProductFragment extends Fragment {
 
         requestQueue = Volley.newRequestQueue(view);
         productView = view.findViewById(R.id.product_recyclerView);
+        search_rdr_p = view.findViewById(R.id.search_rdr_p);
+
+        search_rdr_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view, Search.class);
+                startActivity(intent);
+            }
+        });
 
         carouselView.setImageListener(new ImageListener() {
             @Override
@@ -92,8 +100,7 @@ public class ProductFragment extends Fragment {
     }
 
     private void fetchData(ArrayList<RequestReturn_Products> dataProducts, Context context) {
-        String url = "https://backend-mobile-quang.herokuapp.com/products";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

@@ -26,7 +26,6 @@ public class CartRecViewAdapter extends RecyclerView.Adapter<CartRecViewAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // thằng này của t là nó gắn cái cart_list-item xml file vào recycler view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_list_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
@@ -36,7 +35,7 @@ public class CartRecViewAdapter extends RecyclerView.Adapter<CartRecViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name_txt.setText(items.get(position).getName());
         holder.price_txt.setText(items.get(position).getPrice());
-        holder.quantity_txt.setText(items.get(position).getQuantity());
+        holder.quantity_txt.setText(items.get(position).getQuantity().toString());
         Glide.with(context).asBitmap().load(items.get(position).getImageUrl()).into(holder.cart_item_img);
     }
 

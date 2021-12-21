@@ -20,6 +20,7 @@
     <color name="payment_success_confirm">#817F7F</color>
 
     <color name="black_text">#1A051D</color>
-
+    <color name="light_text">#BDBDBD</color>
+    <color name="pending">#828282</color>
 
 </resources>

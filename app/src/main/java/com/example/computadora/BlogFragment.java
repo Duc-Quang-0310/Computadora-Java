@@ -1,6 +1,7 @@
 package com.example.computadora;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -36,6 +38,7 @@ public class BlogFragment extends Fragment {
     private CarouselView carouV;
     private RecyclerView blog_recyclerView;
     private RequestQueue requestQueue;
+    private RelativeLayout search_rdr;
 
     private int[] images = new int[]{
             R.drawable.logo_color, R.drawable.add_to_cart, R.drawable.welcome, R.drawable.ic_account
@@ -59,6 +62,7 @@ public class BlogFragment extends Fragment {
 
     private void initValue(FragmentActivity view) {
         carouV = view.findViewById(R.id.carousel_blog_frag);
+        search_rdr = view.findViewById(R.id.search_rdr);
 //        carouV.setPageCount(images.length);
         blog_recyclerView = view.findViewById(R.id.blog_recyclerView);
         requestQueue = Volley.newRequestQueue(view);
@@ -67,6 +71,14 @@ public class BlogFragment extends Fragment {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(images[position]);
+            }
+        });
+
+        search_rdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view, Search.class );
+                startActivity(intent);
             }
         });
 

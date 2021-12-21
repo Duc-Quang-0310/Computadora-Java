@@ -11,23 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_background"
-        android:paddingHorizontal="30dp"
         android:gravity="center"
+        android:paddingHorizontal="30dp"
         android:paddingBottom="40dp">
 
         <androidx.cardview.widget.CardView
-           android:layout_width="130dp"
-           android:layout_centerHorizontal="true"
-           android:layout_marginTop="20dp"
-           app:cardCornerRadius="130dp"
-           android:elevation="10dp"
-           android:layout_height="130dp">
-           <ImageView
-               android:layout_width="match_parent"
-               android:src="@mipmap/ic_launcher"
-               android:elevation="10dp"
-               android:layout_height="match_parent"/>
-       </androidx.cardview.widget.CardView>
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="130dp">
+
+            <ImageView
+                android:id="@+id/user_display_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="10dp"
+                android:src="@mipmap/ic_launcher" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -120,11 +122,11 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_gender"
+                    android:text="@string/txt_name"
                     android:textSize="15dp"
                     app:layout_constraintBottom_toTopOf="@+id/guideline14"
                     app:layout_constraintEnd_toStartOf="@+id/guideline13"
-                    app:layout_constraintHorizontal_bias="0.171"
+                    app:layout_constraintHorizontal_bias="0.123"
                     app:layout_constraintStart_toEndOf="@+id/imageView9"
                     app:layout_constraintTop_toTopOf="@+id/guideline12"
                     app:layout_constraintVertical_bias="0.526" />
@@ -176,7 +178,7 @@
                     app:layout_constraintVertical_bias="0.636" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/user_display_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nam"
@@ -187,7 +189,7 @@
                     app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/user_display_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0964849119"
@@ -199,7 +201,7 @@
                     app:layout_constraintVertical_bias="0.608" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/user_display_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ducquang@gmail.com"
@@ -357,10 +359,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_bought_history"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/guideline26"
                         app:layout_constraintHorizontal_bias="0.41"
-                        android:textSize="15dp"
                         app:layout_constraintStart_toEndOf="@+id/imageView22"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.523" />
@@ -435,9 +437,9 @@
                     android:id="@+id/logout_redirect"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:clickable="true"
                     android:layout_marginHorizontal="19dp"
                     android:layout_marginTop="12dp"
+                    android:clickable="true"
                     app:layout_constraintEnd_toStartOf="@+id/guideline10"
                     app:layout_constraintStart_toStartOf="@+id/guideline11"
                     app:layout_constraintTop_toBottomOf="@+id/changePW_redirect">
@@ -463,12 +465,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_log_out"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/guideline29"
                         app:layout_constraintHorizontal_bias="0.175"
                         app:layout_constraintStart_toEndOf="@+id/imageView26"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:textSize="15dp"
                         app:layout_constraintVertical_bias="0.523" />
 
                     <ImageView

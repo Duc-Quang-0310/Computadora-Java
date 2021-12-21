@@ -103,8 +103,6 @@ public class ProductsRecViewAdapter extends RecyclerView.Adapter<ProductsRecView
                     boolean exist = false;
 
                     for( int i = 0; i < items1.size();i++ ){
-                        System.out.println(items1.size());
-                        System.out.println(dps.size());
                         for( int j = 0; j <dps.size(); j++) {
                             if ( dps.get(j).getName().toLowerCase(Locale.ROOT).equals(items1.get(i).getName().toLowerCase(Locale.ROOT)) ){
                                 exist = true;

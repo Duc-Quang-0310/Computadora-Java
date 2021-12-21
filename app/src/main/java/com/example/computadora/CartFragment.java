@@ -68,7 +68,11 @@ public class CartFragment extends Fragment {
         Type type = new TypeToken<ArrayList<CartItem>>(){}.getType();
         ArrayList<CartItem> items1 =  gson.fromJson(sharedPreferences.getString(CART_ITEMS,null),type );
 
-        if ( items1 ==  null ) submit_pay.setVisibility(View.GONE);
+        setter(items1, view);
+    }
+
+    private void setter (ArrayList<CartItem> items1,FragmentActivity view){
+        if ( items1 ==  null )  submit_pay.setVisibility(View.GONE);
         else {
             CartRecViewAdapter adapter = new CartRecViewAdapter(view);
             adapter.setItems(items1);

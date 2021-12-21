@@ -63,7 +63,7 @@
             app:layout_constraintVertical_bias="0.31" />
 
         <ImageView
-            android:id="@+id/imageView15"
+            android:id="@+id/minus_quantity"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
@@ -91,12 +91,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline32"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView15"
+            app:layout_constraintStart_toEndOf="@+id/minus_quantity"
             app:layout_constraintTop_toTopOf="@+id/guideline24"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView16"
+            android:id="@+id/add_quantity"
             android:layout_width="24dp"
             android:layout_height="27dp"
             android:layout_marginStart="12dp"
@@ -108,14 +108,14 @@
             app:srcCompat="@drawable/ic_increase_quantity" />
 
         <ImageView
-            android:id="@+id/imageView21"
+            android:id="@+id/delete_cart_item"
             android:layout_width="30dp"
             android:layout_height="26dp"
             android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView16"
+            app:layout_constraintStart_toEndOf="@+id/add_quantity"
             app:layout_constraintTop_toTopOf="@+id/guideline24"
             app:layout_constraintVertical_bias="0.066"
             app:srcCompat="@drawable/ic_delete" />

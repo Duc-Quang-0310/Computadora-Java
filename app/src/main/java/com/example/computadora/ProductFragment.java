@@ -35,7 +35,7 @@ public class ProductFragment extends Fragment {
     private RecyclerView productView;
     private CarouselView carouselView;
     private int[] myImg = new int[]{
-            R.drawable.logo_color, R.drawable.add_to_cart, R.drawable.welcome, R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5
     };
     private RelativeLayout search_rdr_p;
     private RequestQueue requestQueue;
@@ -73,8 +73,6 @@ public class ProductFragment extends Fragment {
 
     private void initValue(FragmentActivity view){
         carouselView = view.findViewById(R.id.carousel_product_fragment);
-//        carouselView.setPageCount(myImg.length);
-
         requestQueue = Volley.newRequestQueue(view);
         productView = view.findViewById(R.id.product_recyclerView);
         search_rdr_p = view.findViewById(R.id.search_rdr_p);
@@ -93,6 +91,8 @@ public class ProductFragment extends Fragment {
                 imageView.setImageResource(myImg[position]);
             }
         });
+        carouselView.setPageCount(myImg.length);
+
 
         ArrayList<RequestReturn_Products> dataProducts = new ArrayList<>();
 

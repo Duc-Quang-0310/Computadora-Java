@@ -45,48 +45,6 @@ public class Auth_PWRecover extends AppCompatActivity {
 
     }
 
-    private void handleErrDisplay() {
-//        username_input_layout.setError("This is an error");
-    }
-
-    private void handleSubmit() {
-        btn_submit_PWR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                printValue();
-            }
-        });
-    }
-
-    private void printValue() {
-        System.out.println("username " + login_username_input_PWR.getText().toString());
-        System.out.println("password " + login_password_input_PWR.getText().toString());
-        System.out.println("pw repeat " + login_passwordRepeat_input_PWR.getText().toString());
-        System.out.println("email " + login_Email_input_PWR.getText().toString());
-    }
-
-
-    private void redirectText() {
-        txt_redirect_to_Sign_In_PWR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectListener(Auth_PWRecover.this, Auth_Login.class);
-            }
-        });
-
-        txt_redirect_to_Sign_Up_PWR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectListener(Auth_PWRecover.this, Auth_SignUp.class);
-            }
-        });
-    }
-
-    private void redirectListener(Context context, Class redirectTo) {
-        Intent intent = new Intent(context,redirectTo);
-        startActivity(intent);
-    }
-
     private void initValue() {
 //     txt
         txt_redirect_to_Sign_In_PWR = findViewById(R.id.txt_redirect_to_Sign_In_PWR);
@@ -106,8 +64,25 @@ public class Auth_PWRecover extends AppCompatActivity {
 //      Volley
         requestQueue = Volley.newRequestQueue(this);
 
-        //handle onClick
+    }
 
+    private void redirectText() {
+        txt_redirect_to_Sign_In_PWR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectListener(Auth_PWRecover.this, Auth_Login.class);
+            }
+        });
+
+        txt_redirect_to_Sign_Up_PWR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectListener(Auth_PWRecover.this, Auth_SignUp.class);
+            }
+        });
+    }
+
+    private void handleSubmit() {
         btn_submit_PWR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +101,11 @@ public class Auth_PWRecover extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void redirectListener(Context context, Class redirectTo) {
+        Intent intent = new Intent(context,redirectTo);
+        startActivity(intent);
     }
 
     private void recover (JSONObject parameters) {

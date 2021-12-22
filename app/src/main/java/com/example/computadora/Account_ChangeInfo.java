@@ -45,27 +45,6 @@ public class Account_ChangeInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_change_info);
 
-        initValue();
-
-        checkValue();
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        submitChange_Info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
-
-    }
-
-    private void initValue() {
         inputCity_layout = findViewById(R.id.inputCity_layout);
         inputDistrict_layout = findViewById(R.id.inputDistrict_layout);
         inputSubDistrict_layout = findViewById(R.id.inputSubDistrict_layout);
@@ -79,6 +58,37 @@ public class Account_ChangeInfo extends AppCompatActivity {
         imageView = findViewById(R.id.previousPage);
 
         requestQueue = Volley.newRequestQueue(this);
+
+        checkValue();
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        submitChange_Info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String cityIP = inputCity.getText().toString().trim();
+                String districtIP = inputDistrict.getText().toString().trim();
+                String subDistrictIP = inputSubDistrict.getText().toString().trim();
+
+                Map<String, String> body = new HashMap<>();
+                body.put("city", cityIP);
+                body.put("district", districtIP);
+                body.put("subDistrict", subDistrictIP);
+                body.put("username", username);
+
+                JSONObject parameters = new JSONObject(body);
+
+                System.out.println(parameters);
+
+                updateShipInfo(parameters, cityIP, districtIP, subDistrictIP);
+            }
+        });
+
     }
 
     private void checkValue() {
@@ -88,30 +98,15 @@ public class Account_ChangeInfo extends AppCompatActivity {
         subDistrict = sharedPreferences.getString(SHIP_SUBDISTRICT, "");
         username = sharedPreferences.getString(USERNAME, "");
 
-        if (!city.equals("")) inputCity_layout.setHint(city);
-        if (!district.equals("")) inputDistrict_layout.setHint(district);
-        if (!subDistrict.equals("")) inputSubDistrict_layout.setHint(subDistrict);
+        if (!city.equals("")) inputCity.setText(city);
+        if (!district.equals("")) inputDistrict.setText(district);
+        if (!subDistrict.equals("")) inputSubDistrict.setText(subDistrict);
 
     }
 
-    private void submit() {
-        String cityIP = inputCity.getText().toString().trim();
-        String districtIP = inputDistrict.getText().toString().trim();
-        String subDistrictIP = inputSubDistrict.getText().toString().trim();
-
-        Map<String, String> body = new HashMap<>();
-        body.put("city", cityIP);
-        body.put("district", districtIP);
-        body.put("subDistrict", subDistrictIP);
-        body.put("username", username);
-        JSONObject parameters = new JSONObject(body);
-        updateShipInfo(parameters);
-    }
-
-    private void updateShipInfo(JSONObject parameters) {
+    private void updateShipInfo(JSONObject parameters, String cityIP,  String districtIP, String subDistrictIP ) {
         System.out.println("update ship info");
-        String url = UPDATE_URL;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, parameters, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, UPDATE_URL, parameters, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -119,7 +114,12 @@ public class Account_ChangeInfo extends AppCompatActivity {
                     String message = response.getString("message");
                     if (success) {
                         Toast.makeText(Account_ChangeInfo.this, message, Toast.LENGTH_LONG).show();
-                        finish();
+                        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(SHIP_CITY, cityIP).apply();
+                        editor.putString(SHIP_DISTRICT, districtIP).apply();
+                        editor.putString(SHIP_SUBDISTRICT, subDistrictIP).apply();
+
                     } else {
                         Toast.makeText(Account_ChangeInfo.this, "Xin vui lòng thử lại sau", Toast.LENGTH_LONG).show();
 

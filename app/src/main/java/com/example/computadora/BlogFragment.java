@@ -41,7 +41,7 @@ public class BlogFragment extends Fragment {
     private RelativeLayout search_rdr;
 
     private int[] images = new int[]{
-            R.drawable.logo_color, R.drawable.add_to_cart, R.drawable.welcome, R.drawable.ic_account
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5
     };
 
     public BlogFragment() {
@@ -63,7 +63,6 @@ public class BlogFragment extends Fragment {
     private void initValue(FragmentActivity view) {
         carouV = view.findViewById(R.id.carousel_blog_frag);
         search_rdr = view.findViewById(R.id.search_rdr);
-//        carouV.setPageCount(images.length);
         blog_recyclerView = view.findViewById(R.id.blog_recyclerView);
         requestQueue = Volley.newRequestQueue(view);
 
@@ -73,6 +72,7 @@ public class BlogFragment extends Fragment {
                 imageView.setImageResource(images[position]);
             }
         });
+        carouV.setPageCount(images.length);
 
         search_rdr.setOnClickListener(new View.OnClickListener() {
             @Override

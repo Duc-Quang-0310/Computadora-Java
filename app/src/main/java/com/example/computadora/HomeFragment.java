@@ -40,14 +40,13 @@ public class HomeFragment extends Fragment {
     private RecyclerView home_product_RecyclerView;
     private CarouselView carouselView;
     private int[] myImg = new int[]{
-            R.drawable.logo_color, R.drawable.add_to_cart, R.drawable.welcome, R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5
     };
     private RequestQueue mQueue;
     private Button see_more_btn;
     private RelativeLayout search_zone_input;
     private static final String URL= "https://backend-mobile-quang.herokuapp.com/products";
-    private static final String SHARED_PREF = "sharedPrefs";
-    private static final String CART_ITEMS = "cart_items";
+    private static final int PRODUCT_FRAGMENT = 1000367;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -101,22 +100,11 @@ public class HomeFragment extends Fragment {
         see_more_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view, ProductFragment.class);
+                Intent intent = new Intent(view, Home.class);
+                intent.putExtra("view", PRODUCT_FRAGMENT);
                 startActivity(intent);
             }
         });
-        storeFakeData();
-    }
-
-    private void storeFakeData() {
-        ArrayList<CartItem> fakeData = new ArrayList<>();
-        fakeData.add(new CartItem("Test 123", "27.000.000 đ", 1, "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"));
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        Gson gson = new Gson();
-//        editor.putString(CART_ITEMS, gson.toJson(fakeData));
-//        editor.commit();
-        System.out.println("Clear data complete");
     }
 
     @Override

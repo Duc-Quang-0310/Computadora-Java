@@ -43,6 +43,7 @@ public class Auth_Login extends AppCompatActivity {
     private static final String SHIP_CITY = "shipCity";
     private static final String SHIP_DISTRICT = "shipDistrict";
     private static final String SHIP_SUBDISTRICT = "shipSubDistrict";
+    private static final String USER_ID = "userID";
 
     private RequestQueue requestQueue;
     private TextView txt_Redirect_to_Sign_Up, txt_Redirect_to_PWRecover;
@@ -140,6 +141,7 @@ public class Auth_Login extends AppCompatActivity {
                         editor.putString(SHIP_DISTRICT,shipDistrict );
                         editor.putString(USERNAME,username);
                         editor.putString(SHIP_SUBDISTRICT , shipSubDistrict);
+                        editor.putString(USER_ID,_id);
                         editor.commit();
 
                         Toast.makeText(Auth_Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();

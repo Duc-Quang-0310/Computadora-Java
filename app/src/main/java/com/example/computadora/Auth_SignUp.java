@@ -43,7 +43,9 @@ public class Auth_SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_auth_sign_up);
 
         initValue();
+
         redirectText();
+
         handleSubmit();
     }
 
@@ -51,18 +53,22 @@ public class Auth_SignUp extends AppCompatActivity {
         btn_submit_Sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                printValue();
+                String username = login_username_input_sign_up.getText().toString().trim();
+                String password = login_password_input_sign_up.getText().toString().trim();
+                String pwConfirm = login_passwordRepeat_input_sign_up.getText().toString().trim();
+                String email = login_Email_input_sign_up.getText().toString().trim();
+                boolean ok = verify(username , password , pwConfirm, email );
+                if( ok ) {
+                    Map<String, String> body = new HashMap<>();
+                    body.put("username",username);
+                    body.put("password",password);
+                    body.put("email",email);
+                    JSONObject parameters = new JSONObject(body);
+                    register(parameters);
+                }
             }
         });
     }
-
-    private void printValue() {
-        System.out.println("username " + login_username_input_sign_up.getText().toString());
-        System.out.println("password " + login_password_input_sign_up.getText().toString());
-        System.out.println("pw repeat " + login_passwordRepeat_input_sign_up.getText().toString());
-        System.out.println("email " + login_Email_input_sign_up.getText().toString());
-    }
-
 
     private void redirectText() {
         txt_redirect_to_Sign_in_SU.setOnClickListener(new View.OnClickListener() {
@@ -105,25 +111,6 @@ public class Auth_SignUp extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         //handle onClick
-
-        btn_submit_Sign_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = login_username_input_sign_up.getText().toString().trim();
-                String password = login_password_input_sign_up.getText().toString().trim();
-                String pwConfirm = login_passwordRepeat_input_sign_up.getText().toString().trim();
-                String email = login_Email_input_sign_up.getText().toString().trim();
-                boolean ok = verify(username , password , pwConfirm,email );
-                if( ok ) {
-                    Map<String, String> body = new HashMap<>();
-                    body.put("username",username);
-                    body.put("password",password);
-                    body.put("email",email);
-                    JSONObject parameters = new JSONObject(body);
-                    register(parameters);
-                }
-            }
-        });
     }
 
     private void register(JSONObject parameters) {
